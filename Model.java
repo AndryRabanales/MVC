@@ -1,16 +1,20 @@
-import java.util.ArrayList;
-import java.util.List;
+// Archivo: Model.java
+import java.util.*;
 
 public class Model {
     private CoreData coreData;
-    private List<IObserver> observers = new ArrayList<>();
+    private Set<IObserver> observers;
 
-    // --- Métodos de Observer (add, remove, notify) ---
-    public void addObserver(IObserver observer) {
+    public Model() {
+        coreData = new CoreData();
+        observers = new LinkedHashSet<>();
+    }
+
+    public void attach(IObserver observer) {
         observers.add(observer);
     }
 
-    public void removeObserver(IObserver observer) {
+    public void detach(IObserver observer) {
         observers.remove(observer);
     }
 
@@ -19,41 +23,22 @@ public class Model {
             observer.update();
         }
     }
-    // --- Fin de Observer ---
 
-    public Model() {
-        this.coreData = new CoreData();
-        // ESTA LÍNEA ES CORRECTA. Es la única impresión automática.
-        System.out.println("[Model] Current count: " + this.coreData.getCount());
+    public CoreData getData() {
+        return coreData;
     }
 
-    public int getCount() {
-        return this.coreData.getCount();
-    }
-
-    // AÑADE ESTE NUEVO MÉTODO
-    // El "error" en Main es que no llamaba a esto.
-    public void printCurrentState() {
-        System.out.println("[Model] Current count: " + this.coreData.getCount());
-    }
-
-    public void increment() {
-        int currentCount = this.coreData.getCount();
-        this.coreData.setCount(currentCount + 1);
-        
-        // 1. Notifica a todos
-        notifyObservers(); 
-        
-        // 2. LA LÍNEA DE IMPRESIÓN SE ELIMINA DE AQUÍ
-    }
-
-    public void decrement() {
-        int currentCount = this.coreData.getCount();
-        this.coreData.setCount(currentCount - 1);
-
-        // 1. Notifica a todos
+    public void increaseCounter() {
+        int currentValue = coreData.getCount();
+        System.out.println("\n[Model] Current count: " + currentValue);
+        coreData.setCount(currentValue + 1);
         notifyObservers();
+    }
 
-        // 2. LA LÍNEA DE IMPRESIÓN SE ELIMINA DE AQUÍ
+    public void decreaseCounter() {
+        int currentValue = coreData.getCount();
+        System.out.println("\n[Model] Current count: " + currentValue);
+        coreData.setCount(currentValue - 1);
+        notifyObservers();
     }
 }

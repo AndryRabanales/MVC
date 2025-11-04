@@ -1,29 +1,39 @@
-// Implementa IObserver
+// Archivo: Controller.java
 public class Controller implements IObserver {
-    private final String tag;
-    private Model model;
+    protected Model myModel;
+    private View myView;
+
+    protected final String tag;
 
     public Controller(String tag) {
         this.tag = tag;
     }
 
-    public void setModel(Model model) {
-        this.model = model;
+    public void initialize(Model model, View view) { 
+        myModel = model;
+        myView = view;
+        myModel.attach(this);
     }
 
-    // Métodos llamados por la Vista
-    public void onIncrease() {
-        this.model.increment();
-    }
+    // --- INICIO: MODIFICACIÓN PASO #3 ---
+    // Se añade lógica de guarda (guard clause) para respetar los límites
+    // antes de notificar al modelo.
+    public void handleIncreaseEvent() {
+        if (myModel.getData().getCount() < myModel.getData().getMaxLimit()) {
+            myModel.increaseCounter();
+        }
+    }  
 
-    public void onDecrease() {
-        this.model.decrement();
-    }
+    public void handleDecreaseEvent() {
+        if (myModel.getData().getCount() > myModel.getData().getMinLimit()) {
+            myModel.decreaseCounter();
+        }
+    }  
+    // --- FIN: MODIFICACIÓN PASO #3 ---
 
-    // Método llamado por el Modelo (notifyObservers)
     @Override
     public void update() {
-        // Imprime el estado actualizado
-        System.out.println("[Controller." + this.tag + "] Updated count: " + model.getCount());
+        int count = myModel.getData().getCount();
+        System.out.println("[Controller."+tag+"] New count: " + count);
     }
 }
