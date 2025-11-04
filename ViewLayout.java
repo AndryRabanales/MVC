@@ -30,8 +30,6 @@ public class ViewLayout {
         return counterLabel;
     }
 
-    // --- INICIO: MODIFICACIÓN PASO #3 ---
-    // Métodos para habilitar/deshabilitar botones
     public void setIncreaseButtonEnabled(boolean enabled) {
         increaseButton.setEnabled(enabled);
     }
@@ -39,41 +37,43 @@ public class ViewLayout {
     public void setDecreaseButtonEnabled(boolean enabled) {
         decreaseButton.setEnabled(enabled);
     }
-    // --- FIN: MODIFICACIÓN PASO #3 ---
 
     private void createUI() {
-        // Create the main frame
         frame = new JFrame("["+tag+"] + Counter");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // --- CORRECCIÓN 1: No cerrar todo el programa al cerrar una ventana ---
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
         frame.setSize(300, 200);
         frame.setLayout(new BorderLayout());
 
-        // Create the counter label with centered text
         counterLabel = new JLabel("Counter: 0", SwingConstants.CENTER);
         counterLabel.setFont(new Font("Arial", Font.BOLD, 24));
 
-        // Create the button panel
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
 
-        // Create the decrease button
         decreaseButton = new JButton("Decrease");
         decreaseButton.addActionListener(decreaseActionListener);        
 
-        // Create the increase button
         increaseButton = new JButton("Increase");
         increaseButton.addActionListener(increaseActionListener);
 
-        // Add buttons to the panel
         buttonPanel.add(decreaseButton);
         buttonPanel.add(increaseButton);
 
-        // Add components to the frame
         frame.add(counterLabel, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
-        // Position the window
-        frame.setLocationRelativeTo(null);
+        // --- CORRECCIÓN 2: Posiciones fijas para que no se tapen ---
+        if ("1ST".equals(tag)) {
+            frame.setLocation(300, 300); // Posición Ventana 1
+        } else if ("2ND".equals(tag)) {
+            frame.setLocation(700, 300); // Posición Ventana 2
+        } else {
+             frame.setLocationRelativeTo(null); 
+        }
+        
         frame.setVisible(true);
     }
 }
