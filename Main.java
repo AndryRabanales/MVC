@@ -1,26 +1,33 @@
-// Archivo: Main.java
-import javax.swing.SwingUtilities; // <-- IMPORTANTE
+import core.Model;
+import core.CoreData;
+import display.DisplayView;
+import control.ControlView;
+import settings.SettingsView;
 
 public class Main {
     public static void main(String[] args) {
-        
-        // --- INICIO: CORRECCIÓN DE HILO (EDT) ---
-        // Todo código de Swing (UI) debe correr en el "Event Dispatch Thread".
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                // El código original ahora va aquí dentro
-                Model model = new Model();
-        
-                // 1. CREA EL PRIMER CONTADOR (de 1 en 1)
-                View view = new View("1ST");
-                view.initialize(model);
-                
-                // 2. CREA EL SEGUNDO CONTADOR (de 2 en 2)
-                View view2 = new TwiceView("2ND"); 
-                view2.initialize(model);
-            }
-        });
-        // --- FIN: CORRECCIÓN DE HILO (EDT) ---
+        // 1. Crear la única fuente de verdad (Modelo y sus datos)
+        CoreData coreData = new CoreData();
+        Model model = new Model(coreData);
+
+        // 2. Crear las tres Vistas
+        DisplayView displayView = new DisplayView();
+        ControlView controlView = new ControlView();
+        SettingsView settingsView = new SettingsView();
+
+        // 3. Inicializar las Vistas con el Modelo.
+        //    El método initialize() de cada Vista se encargará de:
+        //    - Guardar el modelo
+        //    - Adjuntarse como Observer (model.attach(this))
+        //    - Crear su Controlador (makeController())
+        //    - Inicializar su Controlador (myController.initialize(model, this))
+        //    - Crear su Layout (makeViewLayout())
+        displayView.initialize(model);
+        controlView.initialize(model);
+        settingsView.initialize(model);
+
+        // 4. Forzar una actualización inicial para que todas las vistas
+        //    reflejen el estado inicial del modelo.
+        model.notifyObservers();
     }
 }

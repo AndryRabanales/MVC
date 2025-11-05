@@ -1,0 +1,17 @@
+"java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.19.7-hotspot", // <--- Ejemplo de ruta en Windows
+      "default": false
+    },
+    {
+      "name": "JavaSE-17",
+      "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.8.7-hotspot", // <--- Ejemplo de ruta en Windows
+      "default": true  // <--- Marca este como el por defecto
+    },
+    {
+      "name": "JavaSE-21",
+      "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home", // <--- Ejemplo de ruta en Mac
+      "default": false
+    }
+  ]
