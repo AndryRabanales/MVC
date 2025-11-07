@@ -2,20 +2,16 @@
 package settings; 
 
 import core.Controller; 
-import core.CoreData; // 🚨 ¡Necesitamos CoreData!
+import core.CoreData; 
 
 public class SettingsController extends Controller {
     public SettingsController(String tag) {
         super(tag);
     } 
     
-    // =========================================================================
-    // LÓGICA DE HABILITACIÓN MANUAL (Checkboxes)
-    // =========================================================================
-
+ 
     @Override
     public void handleSetIncreaseEnabledEvent(boolean enabled) {
-        // Requisito: Permite habilitar el botón manualmente (override del sistema).
         myModel.getData().setIncreaseEnabled(enabled);
         myModel.notifyObservers();
     }

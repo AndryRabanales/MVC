@@ -8,9 +8,8 @@ import settings.SettingsView;
 public class Main {
     public static void main(String[] args) {
         
-        // AÑADIDO: Todo el código de Swing debe ejecutarse en el Event Dispatch Thread
             
-            // 1. Inicializar core data y model :)
+            // 1. core data y model :)
             CoreData coreData = new CoreData();
             Model model = new Model(coreData);
     

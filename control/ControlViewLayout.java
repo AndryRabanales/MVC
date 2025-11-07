@@ -6,7 +6,7 @@ import java.awt.event.*;
 import display.DisplayViewLayout; // <-- LÍNEA AÑADIDA
 
 public class ControlViewLayout extends DisplayViewLayout {
-    //... (tu código raíz sin cambios) ...
+
     private JButton increaseButton;
     private JButton decreaseButton;
     

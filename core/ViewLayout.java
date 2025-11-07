@@ -3,7 +3,7 @@ package core; // // <-- IGNORARRRR
 import javax.swing.*;
 
 public abstract class ViewLayout {
-    //... (tu código raíz sin cambios) ...
+
     protected JFrame frame;
     protected final String tag;
     

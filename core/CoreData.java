@@ -11,10 +11,9 @@ public class CoreData {
         this.count = 0;
         this.minLimit = 0;
         this.maxLimit = 5;
-        // CORREGIDO: Estos son las preferencias del usuario (checkboxes)
-        // Por defecto, el usuario "quiere" que estén habilitados.
+        
         this.increaseEnabled = true;
-        this.decreaseEnabled = true;
+        this.decreaseEnabled = false;
     }
     
     public int getCount() {

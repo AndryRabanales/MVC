@@ -1,13 +1,9 @@
 package core; // <-- LÍNEA AÑADIDA
 
-// LÍNEAS AÑADIDAS
-import core.IObserver;
-import core.Model;
-import core.Controller;
-// ---
+
 
 public abstract class View implements IObserver {
-    //... (tu código raíz sin cambios) ...
+    
     protected Model myModel;
     protected Controller myController;
     protected final String tag;
