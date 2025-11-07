@@ -25,7 +25,7 @@ public class DisplayView extends View {
 
     @Override
     public void display() { 
-        int count = myModel.getData().getCount()       
+        int count = myModel.getData().getCount();    
         myViewLayout.setCounterLabel(count);
         
     }
