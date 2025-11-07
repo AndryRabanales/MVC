@@ -1,4 +1,11 @@
+package display;
+
+// LÍNEAS AÑADIDAS
+import core.View;
+// ---
+
 public class DisplayView extends View {
+    //... (tu código raíz sin cambios) ...
     private DisplayViewLayout myViewLayout;
 
     public DisplayView() {
@@ -17,7 +24,9 @@ public class DisplayView extends View {
     }
 
     @Override
-    public void display() {        
+    public void display() { 
+        int count = myModel.getData().getCount()       
+        myViewLayout.setCounterLabel(count);
         
     }
 }

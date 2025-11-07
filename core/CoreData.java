@@ -1,3 +1,5 @@
+package core; // <-- ERROR #1 CORREGIDO
+
 public class CoreData {
     private int count;
     private int minLimit;
@@ -9,8 +11,10 @@ public class CoreData {
         this.count = 0;
         this.minLimit = 0;
         this.maxLimit = 5;
-        this.increaseEnabled = (count < maxLimit);
-        this.decreaseEnabled = (count > minLimit);
+        // CORREGIDO: Estos son las preferencias del usuario (checkboxes)
+        // Por defecto, el usuario "quiere" que estén habilitados.
+        this.increaseEnabled = true;
+        this.decreaseEnabled = true;
     }
     
     public int getCount() {

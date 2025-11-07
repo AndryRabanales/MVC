@@ -1,7 +1,11 @@
+package settings; // <-- LÍNEA AÑADIDA
+
 import javax.swing.*;
 import java.awt.*;
+import core.ViewLayout; // <-- LÍNEA AÑADIDA
 
 public class SettingsViewLayout extends ViewLayout {
+    //... (tu código raíz sin cambios) ...
     private JCheckBox enableIncreaseCheckbox;
     private JCheckBox enableDecreaseCheckbox;
     private JTextField minimumValueField;

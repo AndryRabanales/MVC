@@ -1,6 +1,10 @@
+package core; // <-- LÍNEA AÑADIDA
+
 import java.util.*;
+import core.IObserver; // <-- LÍNEA AÑADIDA
 
 public class Model {
+    //... (tu código raíz sin cambios) ...
     private CoreData coreData;
     private Set<IObserver> observers;
 

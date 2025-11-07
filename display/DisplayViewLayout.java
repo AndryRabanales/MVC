@@ -1,7 +1,11 @@
+package display; // <-- LÍNEA AÑADIDA
+
 import javax.swing.*;
 import java.awt.*;
+import core.ViewLayout; // <-- LÍNEA AÑADIDA
 
 public class DisplayViewLayout extends ViewLayout {
+    //... (tu código raíz sin cambios) ...
     private JLabel counterLabel;
 
     public DisplayViewLayout(String tag) {
