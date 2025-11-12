@@ -28,7 +28,19 @@ public class ControlView extends View {
             myController.handleDecreaseEvent(); 
         };
         
-        myViewLayout.setListeners(increaseActionListener, decreaseActionListener);
+        // --- NUEVO LISTENER (2B) ---
+        ActionListener resetActionListener = (e) -> {
+            myController.handleResetEvent();
+        };
+        // ---------------------------
+        
+        // --- LLAMADA MODIFICADA (2B) ---
+        myViewLayout.setListeners(
+            increaseActionListener, 
+            decreaseActionListener,
+            resetActionListener
+        );
+        // -------------------------------
         
         myViewLayout.initialize();
     }
@@ -43,5 +55,7 @@ public class ControlView extends View {
 
         myViewLayout.getIncreaseButton().setEnabled(increaseEnabled);
         myViewLayout.getDecreaseButton().setEnabled(decreaseEnabled);
+        
+        // El botón de Reset no tiene lógica de habilitación/deshabilitación por ahora
     }   
 }

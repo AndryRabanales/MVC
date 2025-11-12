@@ -1,8 +1,7 @@
-
 package settings; 
 
 import core.View; 
-import java.awt.event.ActionListener; // 🚨 IMPORTANTE
+import java.awt.event.ActionListener; 
 
 public class SettingsView extends View {
     private SettingsViewLayout myViewLayout;
@@ -19,14 +18,14 @@ public class SettingsView extends View {
     @Override
     protected void makeViewLayout() {        
         myViewLayout = new SettingsViewLayout(tag);
-        
+
         myViewLayout.initialize(); 
-    
+
         ActionListener increaseCheckboxListener = (e) -> {
             boolean isChecked = myViewLayout.getEnableIncreaseCheckbox().isSelected();
             myController.handleSetIncreaseEnabledEvent(isChecked);
         };
-    
+
         ActionListener decreaseCheckboxListener = (e) -> {
             boolean isChecked = myViewLayout.getEnableDecreaseCheckbox().isSelected();
             myController.handleSetDecreaseEnabledEvent(isChecked);
@@ -40,7 +39,7 @@ public class SettingsView extends View {
             } catch (NumberFormatException ex) {
             }
         };
-    
+
         ActionListener maxLimitListener = (e) -> {
             try {
                 String text = myViewLayout.getMaximumValueField().getText();
@@ -49,7 +48,7 @@ public class SettingsView extends View {
             } catch (NumberFormatException ex) {
             }
         };
-    
+
         myViewLayout.getEnableIncreaseCheckbox().addActionListener(increaseCheckboxListener);
         myViewLayout.getEnableDecreaseCheckbox().addActionListener(decreaseCheckboxListener);
         myViewLayout.getMinimumValueField().addActionListener(minLimitListener); 

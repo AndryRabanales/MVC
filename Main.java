@@ -1,4 +1,3 @@
-
 import core.Model;
 import core.CoreData;
 import display.DisplayView;
@@ -22,8 +21,6 @@ public class Main {
             displayView.initialize(model);
             controlView.initialize(model);
             settingsView.initialize(model);
-    
-            // 4. Es un observador de cada cambio :p
-            model.notifyObservers();
+
     }
 }

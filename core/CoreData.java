@@ -7,6 +7,10 @@ public class CoreData {
     private boolean increaseEnabled;
     private boolean decreaseEnabled;
     
+    // --- NUEVO CAMPO (2A) ---
+    private int operationsCount;
+    // ------------------------
+
     public CoreData() {
         this.count = 0;
         this.minLimit = 0;
@@ -14,6 +18,10 @@ public class CoreData {
         
         this.increaseEnabled = true;
         this.decreaseEnabled = false;
+
+        // --- INICIALIZACIÓN (2A) ---
+        this.operationsCount = 0;
+        // ---------------------------
     }
     
     public int getCount() {
@@ -55,4 +63,14 @@ public class CoreData {
     public boolean isIncreaseEnabled() {
         return increaseEnabled;
     }
+
+    // --- NUEVOS MÉTODOS (2A) ---
+    public int getOperationsCount() {
+        return operationsCount;
+    }
+
+    public void setOperationsCount(int operationsCount) {
+        this.operationsCount = operationsCount;
+    }
+    // ---------------------------
 }

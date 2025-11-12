@@ -14,4 +14,8 @@
       "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home", // <--- Ejemplo de ruta en Mac
       "default": false
     }
+
+    {
+      "java.project.sourcePaths": ["."]
+    }
   ]

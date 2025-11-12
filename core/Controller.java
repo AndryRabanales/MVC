@@ -26,6 +26,12 @@ public abstract class Controller implements IObserver {
     public void handleDecreaseEvent() {
         
     }
+    
+    // --- NUEVO MÉTODO (2B) ---
+    public void handleResetEvent() {
+
+    }
+    // -------------------------
 
     public void handleSetIncreaseEnabledEvent(boolean enabled) {
         
