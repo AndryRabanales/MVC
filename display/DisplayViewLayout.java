@@ -5,8 +5,12 @@ import java.awt.*;
 import core.ViewLayout; // <-- LÍNEA AÑADIDA
 
 public class DisplayViewLayout extends ViewLayout {
-    //... (tu código raíz sin cambios) ...
+    
     private JLabel counterLabel;
+    
+    // --- CAMPO FALTANTE (2A) ---
+    private JLabel operationsLabel;
+    // ----------------------------
 
     public DisplayViewLayout(String tag) {
         super(tag);
@@ -15,6 +19,12 @@ public class DisplayViewLayout extends ViewLayout {
     public void setCounterLabel(int count) {
         counterLabel.setText("" + count);
     }
+    
+    // --- MÉTODO FALTANTE (2A) ---
+    public void setOperationsLabel(int operations) {
+        operationsLabel.setText("Total operations: " + operations);
+    }
+    // -----------------------------
     
     protected int makeFontSize() {
         return 70;
@@ -25,6 +35,13 @@ public class DisplayViewLayout extends ViewLayout {
         counterLabel = new JLabel("?", SwingConstants.CENTER);
         counterLabel.setFont(new Font("Arial", Font.BOLD, makeFontSize()));
         frame.add(counterLabel, BorderLayout.CENTER);
+
+        // --- LÓGICA DE UI FALTANTE (2A) ---
+        operationsLabel = new JLabel("Total operations: 0", SwingConstants.CENTER);
+        operationsLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+        operationsLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        frame.add(operationsLabel, BorderLayout.SOUTH);
+        // ----------------------------------
     }
 
     @Override

@@ -5,7 +5,7 @@ import core.View;
 // ---
 
 public class DisplayView extends View {
-    //... (tu código raíz sin cambios) ...
+    
     private DisplayViewLayout myViewLayout;
 
     public DisplayView() {
@@ -28,5 +28,9 @@ public class DisplayView extends View {
         int count = myModel.getData().getCount();    
         myViewLayout.setCounterLabel(count);
         
+        // --- LÓGICA FALTANTE (2A) ---
+        int opsCount = myModel.getData().getOperationsCount();
+        myViewLayout.setOperationsLabel(opsCount);
+        // ----------------------------
     }
 }
